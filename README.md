@@ -1,7 +1,6 @@
-# Node Notification Form
+# Node Notification Form Via Email, SMS, Whatsapp With Schedular Option
 
-The first part of the contact form deals with email notification
-Simple Node.js/Express app using Nodemailer to send emails
+The first part of the contact form deals with email notification using Nodemailer to send emails
 - Please add your own SMTP info for it to work
 - However If you wish run it locally you may try like this put in your service as "gmail", though its not secure as you would be required to pass in your to-email's password & to allow this first allow less secure apps in ur email account via this url-----> https://myaccount.google.com/lesssecureapps
 - Apart from nodemailer we can also use mailgun to perform the email notification service.
