@@ -35,9 +35,9 @@ npm install
 ```
 ## Keys
 The keys which are not pushed from .env & are recommended to add your own while using it
-TWILIO_ACCOUNT_SID,
-TWILIO_AUTH_TOKEN,
-API_KEY = emailpassword
+- TWILIO_ACCOUNT_SID
+- TWILIO_AUTH_TOKEN
+- API_KEY = toAddressEmailPassword
 
 ## Run
 
