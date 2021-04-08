@@ -15,6 +15,7 @@
     "express-handlebars": "^3.0.0",
     "nodemailer": "^4.1.0",
     "twilio": "^3.60.0",
+    "wbm": "^1.1.14",
     "web-push": "^3.4.4"
   }
 }

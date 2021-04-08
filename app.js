@@ -5,8 +5,10 @@ const exphbs = require("express-handlebars");
 const path = require("path");
 const nodemailer = require("nodemailer");
 const twilio = require("twilio");
-// const twilio = require("twilio")
+const wbm = require("wbm")
+
 require("dotenv").config();
+
 const app = express();
 
 console.log(process.env);
@@ -18,6 +20,7 @@ app.set("view engine", "handlebars");
 // Static folder
 app.use("/public", express.static(path.join(__dirname, "public")));
 //app.use(express.static(path.join(__dirname,"views")))
+
 // Body Parser Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -85,8 +88,7 @@ app.post("/sendmessage", (req, res) => {
   //var client= new twilio(accountSid)
   client.messages
     .create({
-      body:
-        "This is the ship that made the Kessel Run in fourteen parsecs? did u get that",
+      body:`${req.body.messagesms}`,
       from: "+15005550006",
       to: `${req.body.phone12}`,
     })
@@ -95,6 +97,18 @@ app.post("/sendmessage", (req, res) => {
   console.log(`SMS! Sent to ${JSON.stringify(req.body)}`);
   console.log(`SMS! Sent to 1111 ${JSON.stringify(req.body)}`);
   res.send(`SMS! Sent to ${req.body.phone12}`);
+});
+
+app.post("/sendwhatsapp", (req, res) => {
+  wbm.start().then(async () => {
+    const phones = [` ${req.body.phonewhatsapp}`];//to send to multiple phone no seperate by ,
+    const message = `${req.body.messagewhatsapp}`;
+    await wbm.send(phones, message);
+    console.log("whatsapp message send to",phones)
+    await wbm.end();
+}).catch(err => console.log("error in whatsapp",err));
+  console.log(`Whatsapp! Sent to ${JSON.stringify(req.body)}`);
+  res.send(`Whatsapp! Sent to ${req.body.phonewhatsapp}`);
 });
 
 const port = 6500;

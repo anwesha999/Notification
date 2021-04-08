@@ -26,7 +26,7 @@
                 </ul>
             </div>
             <div class="contact">
-                <h3>Email Us</h3>
+                <h3>To Illustrate Email Notification</h3>
                 {{msg}}
                 <form method="POST" action="send">
                     <p>
@@ -55,16 +55,34 @@
                 </form>
                 <br />
                 <form method="POST" action="sendmessage">
-                    <h3>Send Us Message</h3>
+                    <h3>To Illustrate Message Notification On Your Phone</h3>
                     <p>
                         <label>Phone Number</label>
                         <input type="text" name="phone12">
+                    </p>
+                      <p class="full">
+                        <label>Message</label>
+                        <textarea name="messagesms" rows="5"></textarea>
                     </p>
                     <p class="full">
                         <button type="sendmessage">Submit For SMS Notif</button>
                     </p>
                 </form>
-
+                <br />
+                <form method="POST" action="sendwhatsapp">
+                    <h3>To Illustrate Whatsapp Notification On Your Phone</h3>
+                    <p>
+                        <label>Phone Number</label>
+                        <input type="text" name="phonewhatsapp">
+                    </p>
+                       <p class="full">
+                        <label>Message</label>
+                        <textarea name="messagewhatsapp" rows="5"></textarea>
+                    </p>
+                    <p class="full">
+                        <button type="sendmessage">Submit For Whatsapp Notif</button>
+                    </p>
+                </form>
             </div>
         </div>
     </div>
