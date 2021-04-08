@@ -5,7 +5,10 @@ const exphbs = require("express-handlebars");
 const path = require("path");
 const nodemailer = require("nodemailer");
 const twilio = require("twilio");
-const wbm = require("wbm")
+const wbm = require("wbm");
+const schedule = require('node-schedule')
+const cron = require('node-cron');
+
 
 require("dotenv").config();
 
@@ -63,9 +66,9 @@ app.post("/send", (req, res) => {
   // setup email data with unicode symbols
   let mailOptions = {
     from: "sinhaanwesha16@gmail.com", //'"Nodemailer Contact" <your@email.com>', // sender address
-    to: "anwesha@yellowmessenger.com", // list of receivers
-    subject: "Email Notification", // Subject line
-    text: "Sending In Email Notification via nodemailer..", // plain text body
+    to: `${req.body.email}`, // list of receivers
+    subject: `Email Notification-${req.body.company}`, // Subject line
+    text: `Hi ${req.body.name}! Sending In Email Notification via nodemailer..`, // plain text body
     html: output, // html body
   };
 
@@ -100,6 +103,8 @@ app.post("/sendmessage", (req, res) => {
 });
 
 app.post("/sendwhatsapp", (req, res) => {
+  //const mJob=schedule.scheduleJob('*/2 * * * * *',()=>{
+    cron.schedule('* * * * *', () => {
   wbm.start().then(async () => {
     const phones = [` ${req.body.phonewhatsapp}`];//to send to multiple phone no seperate by ,
     const message = `${req.body.messagewhatsapp}`;
@@ -109,6 +114,9 @@ app.post("/sendwhatsapp", (req, res) => {
 }).catch(err => console.log("error in whatsapp",err));
   console.log(`Whatsapp! Sent to ${JSON.stringify(req.body)}`);
   res.send(`Whatsapp! Sent to ${req.body.phonewhatsapp}`);
+});
+console.log("i ran at the given regular expression",new Date().toString())
+// mJob.cancel() 
 });
 
 const port = 6500;

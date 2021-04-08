@@ -28,18 +28,19 @@
             <div class="contact">
                 <h3>To Illustrate Email Notification</h3>
                 {{msg}}
+                <!--EMAIL  SECTION-->
                 <form method="POST" action="send">
                     <p>
                         <label>Name</label>
-                        <input type="text" name="name">
+                        <input type="text" name="name" required>
                     </p>
                     <p>
                         <label>Company</label>
-                        <input type="text" name="company">
+                        <input type="text" name="company" required>
                     </p>
                     <p>
                         <label>Email Address</label>
-                        <input type="email" name="email">
+                        <input type="text" name="email" required>
                     </p>
                     <p>
                         <label>Phone Number</label>
@@ -47,40 +48,46 @@
                     </p>
                     <p class="full">
                         <label>Message</label>
-                        <textarea name="message" rows="5"></textarea>
+                        <textarea name="message" rows="5" required></textarea>
                     </p>
                     <p class="full">
-                        <button type="submit">Submit For Email Notif</button>
+                        <button type="submit">Submit For Email Notify</button>
                     </p>
                 </form>
+                <!--SMS SECTION-->
                 <br />
+
                 <form method="POST" action="sendmessage">
                     <h3>To Illustrate Message Notification On Your Phone</h3>
                     <p>
                         <label>Phone Number</label>
-                        <input type="text" name="phone12">
-                    </p>
-                      <p class="full">
-                        <label>Message</label>
-                        <textarea name="messagesms" rows="5"></textarea>
+                        <input type="tel" name="phone12" pattern="[0-9]{12}" required>
+                    <small>Format:917003666622</small>
                     </p>
                     <p class="full">
-                        <button type="sendmessage">Submit For SMS Notif</button>
+                        <label>Message</label>
+                        <textarea name="messagesms" rows="5" required></textarea>
+                    </p>
+                    <p class="full">
+                        <button type="sendmessage">Submit For SMS Notify</button>
                     </p>
                 </form>
+
+                <!--WHATSAPP  SECTION-->
                 <br />
                 <form method="POST" action="sendwhatsapp">
                     <h3>To Illustrate Whatsapp Notification On Your Phone</h3>
                     <p>
                         <label>Phone Number</label>
-                        <input type="text" name="phonewhatsapp">
-                    </p>
-                       <p class="full">
-                        <label>Message</label>
-                        <textarea name="messagewhatsapp" rows="5"></textarea>
+                        <input type="tel" name="phonewhatsapp" pattern="[0-9]{12}" required>
+                        <small>Format:917003666622</small>
                     </p>
                     <p class="full">
-                        <button type="sendmessage">Submit For Whatsapp Notif</button>
+                        <label>Message</label>
+                        <textarea name="messagewhatsapp" rows="5" required></textarea>
+                    </p>
+                    <p class="full">
+                        <button type="sendmessage">Submit For Whatsapp Notify</button>
                     </p>
                 </form>
             </div>
