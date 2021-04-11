@@ -41,7 +41,7 @@ The keys which are not pushed from .env & are recommended to add your own while 
 ## Run
 
 ```bash
-nodemon app.js
+node app.js
 ```
 
 ## Future Scope
